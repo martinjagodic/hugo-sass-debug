@@ -1,0 +1,12 @@
+.container {
+  --container-padding: clamp(24px, 4px + 5.2vw, 80px);
+
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  // bug: changing here will not trigger hot reload
+  background-color: yellow;
+}

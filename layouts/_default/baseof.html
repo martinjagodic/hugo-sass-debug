@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- BEGIN STYLES DEBUG -->  
+  {{ $opts := dict "targetPath" "styles/style.css" }}
+
+  {{ with resources.Get "styles/style.scss" | toCSS $opts | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+  <!-- END STYLES DEBUG -->  
+</head>
+
+<body>
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>
